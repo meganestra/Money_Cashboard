@@ -5,10 +5,11 @@ require_relative('../models/target')
 require_relative('../models/merchant')
 require_relative('../models/transaction')
 
+Transaction.delete_all()
 Tag.delete_all()
 Merchant.delete_all()
 Target.delete_all()
-# Transaction.delete_all()
+
 
 tag1 = Tag.new( {'description' => 'Food shopping'} ).save
 tag2 = Tag.new( {'description' => 'Lunch out'} ).save
@@ -47,7 +48,7 @@ target2 = Target.new( {'type' => 'debt repayment', 'month' => 'June', 'value' =>
 transaction1 = Transaction.new( {
   'merchant_id' => merchant1.id,
   'tag_id' => tag1.id,
-  'amount' => 40.00,
+  'amount' => 40,
   'date' => '2016-06-05',
   'time' => '12:00',
   'transaction_type' => 'debit',

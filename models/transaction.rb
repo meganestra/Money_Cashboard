@@ -11,7 +11,7 @@ class Transaction
     @id = options['id'].to_i
     @merchant_id = options['merchant_id'].to_i
     @tag_id = options['tag_id'].to_i
-    @amount = options['amount'].to_i
+    @amount = options['amount']
     @date = options['date']
     @time = options['time']
     @transaction_type = options['transaction_type']
