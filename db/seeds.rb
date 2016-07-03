@@ -3,7 +3,7 @@ require_relative('sql_runner')
 require_relative('../models/tag')
 require_relative('../models/target')
 require_relative('../models/merchant')
-# require_relative('../models/transaction')
+require_relative('../models/transaction')
 
 Tag.delete_all()
 Merchant.delete_all()
@@ -44,7 +44,16 @@ target2 = Target.new( {'type' => 'debt repayment', 'month' => 'June', 'value' =>
 
 
 #transactions
-
+transaction1 = Transaction.new( {
+  'merchant_id' => merchant1.id,
+  'tag_id' => tag1.id,
+  'amount' => 40.00,
+  'date' => '2016-06-05',
+  'time' => '12:00',
+  'transaction_type' => 'debit',
+  'payment_type' => 'cash',
+  'shopping_method' => 'in-store'
+  }).save
 
 
 

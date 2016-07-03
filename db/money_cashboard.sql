@@ -27,6 +27,7 @@ CREATE TABLE transactions (
   amount INT2 not null,
   date DATE not null,
   time TIME not null,
+  transaction_type VARCHAR(255) not null,
   payment_type VARCHAR(255) not null,
   shopping_method VARCHAR(255) not null
 );
