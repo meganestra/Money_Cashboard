@@ -34,7 +34,7 @@ class TestAccount < Minitest::Test
       })
 
     @target1 = Target.new( {'type' => 'savings', 'month' => 'June', 'value' => 150} ).save
-    @target2 = Target.new( {'type' => 'debt repayment', 'month' => 'June', 'value' => 50} ).save
+    @target2 = Target.new( {'type' => 'debt repayment', 'month' => 'June', 'value' => 10} ).save
 
     @account = Account.new([transaction1, transaction2])
 
@@ -55,6 +55,11 @@ class TestAccount < Minitest::Test
   def test_total_expenditure_less_than_target()
     assert_equal(false, @account.total_expenditure_against_target(@target1))
   end
+
+  def test_amount_remaining_to_reach_target()
+    assert_equal(89.80, @account.calculate_amount_to_reach_target(@target1))
+  end
+
 
 end
 

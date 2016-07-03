@@ -36,7 +36,13 @@ class Account
     return total_expenditure > target.value
   end
 
+  def calculate_amount_to_reach_target(target)
+    # if total expen against target is false
+    # subtract the total expenditure from the target value
 
+    return  target.value - total_expenditure if total_expenditure_against_target(target) == false
+
+  end
 
 end
 
