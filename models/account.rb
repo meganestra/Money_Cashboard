@@ -37,11 +37,16 @@ class Account
   end
 
   def calculate_amount_to_reach_target(target)
-    # if total expen against target is false
-    # subtract the total expenditure from the target value
-
     return  target.value - total_expenditure if total_expenditure_against_target(target) == false
+  end
 
+  def calculate_round_up_value()
+    total = 0
+    @accounts.each do |account|
+      total += (account.amount).to_f.ceil
+    end
+    result = total - total_expenditure
+    return result.round(1)
   end
 
 end

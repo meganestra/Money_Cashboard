@@ -60,6 +60,9 @@ class TestAccount < Minitest::Test
     assert_equal(89.80, @account.calculate_amount_to_reach_target(@target1))
   end
 
+  def test_calculate_round_up_value_of_account()
+    assert_equal(0.80, @account.calculate_round_up_value())
+  end
 
 end
 
