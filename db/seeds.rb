@@ -2,11 +2,11 @@ require('pry-byebug')
 require_relative('sql_runner')
 require_relative('../models/tag')
 # require_relative('../models/target')
-# require_relative('../models/merchant')
+require_relative('../models/merchant')
 # require_relative('../models/transaction')
 
 Tag.delete_all()
-# Merchant.delete_all()
+Merchant.delete_all()
 # Target.delete_all()
 # Transaction.delete_all()
 
@@ -27,6 +27,16 @@ tag14 = Tag.new( {'description' => 'Gifts'} ).save
 tag15 = Tag.new( {'description' => 'Music'} ).save
 
 #merchants
+merchant1 = Merchant.new( {'name' => 'Tesco'} ).save
+merchant2 = Merchant.new( {'name' => 'Subway'} ).save
+merchant3 = Merchant.new( {'name' => 'Starbucks'} ).save
+merchant4 = Merchant.new( {'name' =>  'Cineworld'} ).save
+merchant5 = Merchant.new( {'name' => 'Sainsburys'} ).save
+merchant6 = Merchant.new( {'name' => 'Council'} ).save
+merchant7 = Merchant.new( {'name' => 'SSE'} ).save
+merchant8 = Merchant.new( {'name' => 'Tinderbox'} ).save
+merchant9 = Merchant.new( {'name' => 'Shell'} ).save
+merchant10 = Merchant.new( {'name' => 'iTunes'} ).save
 
 #targets
 
