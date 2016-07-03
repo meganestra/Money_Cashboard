@@ -1,5 +1,6 @@
 require('pg')
 require_relative('../db/sql_runner')
+require_relative('transaction')
 
 class Merchant
 
@@ -18,6 +19,11 @@ class Merchant
   end
 
   #transactions(show all associated transactions)
+  def transactions()
+    sql = "SELECT * FROM transactions WHERE merchant_id = #{@id}"
+    results = Transaction.map_items(sql)
+    return results
+  end
 
   #update(UPDATE)
 

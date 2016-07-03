@@ -19,8 +19,6 @@ class Target
     return Target.new(target)
   end
 
-  #transactions(show all associated transactions)
-
   #update(UPDATE)
 
   #show all(READ)
