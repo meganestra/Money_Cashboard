@@ -15,17 +15,21 @@ class Account
 
   #total expenditure
   def total_expenditure()
-    
     total = 0
-
     @accounts.each do |account|
-
       total += account.amount
-
     end
-
     return total
-    
+  end
+
+  def total_expenditure_by_tag(tag_id)
+    total = 0
+    @accounts.each do |account|
+      if account.tag_id == tag_id
+      total += account.amount
+      end
+    end
+    return total
   end
 
 

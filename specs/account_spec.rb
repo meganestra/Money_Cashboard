@@ -12,8 +12,8 @@ class TestAccount < Minitest::Test
     merchant2 = Merchant.new( {'name' => 'Subway'} )
 
     transaction1 = Transaction.new( {
-      'merchant_id' => merchant1.id,
-      'tag_id' => tag1.id,
+      'merchant_id' => 1,
+      'tag_id' => 2,
       'amount' => 40.00,
       'date' => '2016-06-05',
       'time' => '12:00',
@@ -22,8 +22,8 @@ class TestAccount < Minitest::Test
       'shopping_method' => 'in-store'
       })
     transaction2 = Transaction.new( {
-      'merchant_id' => merchant1.id,
-      'tag_id' => tag1.id,
+      'merchant_id' => 2,
+      'tag_id' => 3,
       'amount' => 1.20,
       'date' => '2016-06-05',
       'time' => '14:00',
@@ -40,6 +40,9 @@ class TestAccount < Minitest::Test
     assert_equal(41.20, @account.total_expenditure())
   end
 
+  def  test_total_expenditure_by_tag()
+    assert_equal(1.20, @account.total_expenditure_by_tag(3))
+  end
 
 
 
