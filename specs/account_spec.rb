@@ -1,5 +1,6 @@
 require('minitest/autorun')
 require_relative('../models/account')
+require_relative('../models/target')
 
 class TestAccount < Minitest::Test
 
@@ -24,7 +25,7 @@ class TestAccount < Minitest::Test
     transaction2 = Transaction.new( {
       'merchant_id' => 2,
       'tag_id' => 3,
-      'amount' => 1.20,
+      'amount' => 20.20,
       'date' => '2016-06-05',
       'time' => '14:00',
       'transaction_type' => 'debit',
@@ -32,19 +33,28 @@ class TestAccount < Minitest::Test
       'shopping_method' => 'in-store'
       })
 
+    @target1 = Target.new( {'type' => 'savings', 'month' => 'June', 'value' => 150} ).save
+    @target2 = Target.new( {'type' => 'debt repayment', 'month' => 'June', 'value' => 50} ).save
+
     @account = Account.new([transaction1, transaction2])
 
   end
 
   def test_total_expenditure()
-    assert_equal(41.20, @account.total_expenditure())
+    assert_equal(60.20, @account.total_expenditure())
   end
 
   def  test_total_expenditure_by_tag()
-    assert_equal(1.20, @account.total_expenditure_by_tag(3))
+    assert_equal(20.20, @account.total_expenditure_by_tag(3))
   end
 
+  def test_total_expenditure_greater_than_target()
+    assert_equal(true, @account.total_expenditure_against_target(@target2))
+  end
 
+  def test_total_expenditure_less_than_target()
+    assert_equal(false, @account.total_expenditure_against_target(@target1))
+  end
 
 end
 

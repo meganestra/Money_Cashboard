@@ -32,6 +32,21 @@ class Account
     return total
   end
 
+  def total_expenditure_against_target(target)
+    return total_expenditure > target.value
+  end
+
 
 
 end
+
+
+
+
+
+
+
+
+
+
+
