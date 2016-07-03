@@ -18,6 +18,11 @@ class Tag
   end
 
   #transactions(show all associated transactions)
+  def transactions()
+    sql = "SELECT * FROM transactions WHERE tag_id = #{@id}"
+    results = Transaction.map_items(sql)
+    return results
+  end
 
   #update(UPDATE)
   # def self.update(options)
