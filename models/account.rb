@@ -41,33 +41,6 @@ class Account
     return result.round(1)
   end
 
-  # def total_expenditure()
-  #   total = 0
-  #   @accounts.each do |account|
-  #       total += account.amount if account.transaction_type == "credit"
-  #       total -= account.amount if account.transaction_type == "debit"
-  #     end
-  #   return total
-  # end
-
-  # def total_expenditure_by_tag(tag_id)
-  #   total = 0
-  #   @accounts.each do |account|
-  #     # account.total_expenditure if account.tag_id == tag_id
-  #     total += account.amount if account.transaction_type == "credit" && account.tag_id == tag_id
-  #     total -= account.amount if account.transaction_type == "debit" && account.tag_id == tag_id
-  #   end
-  #   return total
-  # end
-
-  # def total_expenditure_against_target(target)
-  #   return total_expenditure > target.value
-  # end
-
-  # def calculate_amount_to_reach_target(target)
-  #   return  target.value - total_expenditure if total_expenditure_against_target(target) == false
-  # end
-
   def calculate_round_up_value()
     total_round_up_value = 0
     @accounts.each do |account|
