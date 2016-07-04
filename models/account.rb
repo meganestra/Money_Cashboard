@@ -4,7 +4,6 @@ require_relative('tag')
 require_relative('merchant')
 require_relative('transaction')
 
-
 class Account
 
   attr_reader(:accounts)
@@ -13,21 +12,21 @@ class Account
     @accounts = accounts
   end
 
-  #total expenditure
   def total_expenditure()
     total = 0
     @accounts.each do |account|
-      total += account.amount
-    end
+        total += account.amount if account.transaction_type == "credit"
+        total -= account.amount if account.transaction_type == "debit"
+      end
     return total
   end
 
   def total_expenditure_by_tag(tag_id)
     total = 0
     @accounts.each do |account|
-      if account.tag_id == tag_id
-      total += account.amount
-      end
+      # account.total_expenditure if account.tag_id == tag_id
+      total += account.amount if account.transaction_type == "credit" && account.tag_id == tag_id
+      total -= account.amount if account.transaction_type == "debit" && account.tag_id == tag_id
     end
     return total
   end

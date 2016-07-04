@@ -5,7 +5,7 @@ require_relative('merchant')
 
 class Transaction
 
-  attr_reader(:id, :merchant_id, :tag_id, :amount, :date, :time, :payment_type, :shopping_method)
+  attr_reader(:id, :merchant_id, :tag_id, :amount, :date, :time, :transaction_type, :payment_type, :shopping_method)
 
   def initialize(options)
     @id = options['id'].to_i
