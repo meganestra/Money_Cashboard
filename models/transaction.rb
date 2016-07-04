@@ -25,6 +25,16 @@ class Transaction
     return Transaction.map_item(sql)
   end
 
+  def merchant_name()
+    sql = "SELECT name FROM merchants WHERE id = #{@merchant_id}"
+    return Merchant.map_item(sql).name
+  end
+
+  def tag_description()
+    sql = "SELECT description FROM tags WHERE id = #{@tag_id}"
+    return Tag.map_item(sql).description
+  end
+
   #update
 
   def self.show()

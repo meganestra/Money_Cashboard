@@ -18,6 +18,8 @@ post '/transaction' do
 end
 
 get '/transaction' do
-  @transactions = Transaction.all
+  @transactions = Transaction.show()
+  @merchants = Merchant.show()
+  @tags = Tag.show()
   erb(:'transaction/index')
 end
