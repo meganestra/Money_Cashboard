@@ -32,21 +32,41 @@ class TestAccount < Minitest::Test
       'payment_type' => 'cash',
       'shopping_method' => 'in-store'
       })
+    transaction3 = Transaction.new( {
+      'merchant_id' => 3,
+      'tag_id' => 4,
+      'amount' => 1500.00,
+      'date' => '2016-06-01',
+      'time' => '09:00',
+      'transaction_type' => "credit"
+      })
+    transaction4 = Transaction.new( {
+      'merchant_id' => 23,
+      'tag_id' => 4,
+      'amount' => 150.00,
+      'date' => '2016-06-01',
+      'time' => '09:00',
+      'transaction_type' => "credit"
+      })
 
     @target1 = Target.new( {'type' => 'savings', 'month' => 'June', 'value' => 150} ).save
     @target2 = Target.new( {'type' => 'debt repayment', 'month' => 'June', 'value' => 10} ).save
 
-    @account = Account.new([transaction1, transaction2])
+    @account = Account.new([transaction1, transaction2, transaction3, transaction4])
 
   end
 
-  def test_total_expenditure()
-    assert_equal(-60.20, @account.total_expenditure())
+  def test_total_income()
+    assert_equal(1650.00, @account.account_income())
   end
 
-  def  test_total_expenditure_by_tag()
-    assert_equal(-20.20, @account.total_expenditure_by_tag(3))
-  end
+  # def test_total_expenditure()
+  #   assert_equal(-60.20, @account.total_expenditure())
+  # end
+
+  # def  test_total_expenditure_by_tag()
+  #   assert_equal(-20.20, @account.total_expenditure_by_tag(3))
+  # end
 
   # def test_total_expenditure_greater_than_target()
   #   assert_equal(true, @account.total_expenditure_against_target(@target2))

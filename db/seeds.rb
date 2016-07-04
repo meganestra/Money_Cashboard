@@ -36,7 +36,7 @@ merchant5 = Merchant.new( {'name' => 'Sainsburys'} ).save
 merchant6 = Merchant.new( {'name' => 'Council'} ).save
 merchant7 = Merchant.new( {'name' => 'SSE'} ).save
 merchant8 = Merchant.new( {'name' => 'Tinderbox'} ).save
-merchant9 = Merchant.new( {'name' => 'Shell'} ).save
+merchant9 = Merchant.new( {'name' => 'Salary'} ).save
 merchant10 = Merchant.new( {'name' => 'iTunes'} ).save
 
 #targets
