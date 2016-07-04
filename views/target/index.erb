@@ -1,0 +1,10 @@
+<h1>Your targets</h1>
+
+<% @targets.each do |target| %>
+<h5>Target type:</h5>
+<%= target.type %>
+<h5>Target month:</h5>
+<%= target.month %>
+<h5>Target value:</h5>
+<%= target.value %>
+<% end %>

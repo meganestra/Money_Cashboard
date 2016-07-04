@@ -17,12 +17,14 @@ post '/target' do
   erb(:'/target/create')
 end
 
-# get '/target' do
-#  @targets = Target.show()
-#  erb(:'/target/index')
-# end
+get '/target' do
+ @targets = Target.show()
+ erb(:'/target/index')
+end
 
-# get '/target/analysis' do
-#   @targets = Target.show()
-#   erb(:'target/target')
-# end
+get '/target/analysis' do
+  @targets = Target.show()
+  @transactions = Transaction.show()
+  @accounts = Account.new(@transactions)
+  erb(:'target/target')
+end
