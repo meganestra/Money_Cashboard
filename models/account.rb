@@ -36,6 +36,11 @@ class Account
     return account_balance > target.value
   end
 
+  def calculate_amount_to_reach_target(target)
+    result = target.value - account_balance if balance_against_target(target) == false
+    return result.round(1)
+  end
+
   # def total_expenditure()
   #   total = 0
   #   @accounts.each do |account|
@@ -63,6 +68,7 @@ class Account
   #   return  target.value - total_expenditure if total_expenditure_against_target(target) == false
   # end
 
+#need to add debit condition
   # def calculate_round_up_value()
   #   total = 0
   #   @accounts.each do |account|
