@@ -68,15 +68,14 @@ class Account
   #   return  target.value - total_expenditure if total_expenditure_against_target(target) == false
   # end
 
-#need to add debit condition
-  # def calculate_round_up_value()
-  #   total = 0
-  #   @accounts.each do |account|
-  #     total += (account.amount).to_f.ceil
-  #   end
-  #   result = total - total_expenditure
-  #   return result.round(1)
-  # end
+  def calculate_round_up_value()
+    total_round_up_value = 0
+    @accounts.each do |account|
+      total_round_up_value += (account.amount).to_f.ceil if account.transaction_type == "debit"
+    end
+    result = total_round_up_value - account_outgoings
+    return result.round(1)
+  end
 
 end
 
