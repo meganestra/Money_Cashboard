@@ -51,6 +51,7 @@ class TestAccount < Minitest::Test
 
     @target1 = Target.new( {'type' => 'savings', 'month' => 'June', 'value' => 150} ).save
     @target2 = Target.new( {'type' => 'debt repayment', 'month' => 'June', 'value' => 10} ).save
+    @target3 = Target.new( {'type' => 'savings', 'month' => 'June', 'value' => 2000} ).save
 
     @account = Account.new([transaction1, transaction2, transaction3, transaction4])
 
@@ -66,6 +67,14 @@ class TestAccount < Minitest::Test
 
   def test_account_balance()
     assert_equal(1589.80, @account.account_balance())
+  end
+
+  def test_account_balance_greater_than_target()
+    assert_equal(true, @account.balance_against_target(@target1))
+  end
+
+  def test_account_balance_less_than_target()
+    assert_equal(false, @account.balance_against_target(@target3))
   end
 
   # def test_total_expenditure()

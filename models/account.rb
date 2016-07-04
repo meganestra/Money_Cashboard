@@ -32,6 +32,10 @@ class Account
     return account_income - account_outgoings
   end
 
+  def balance_against_target(target)
+    return account_balance > target.value
+  end
+
   # def total_expenditure()
   #   total = 0
   #   @accounts.each do |account|
