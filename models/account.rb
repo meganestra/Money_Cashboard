@@ -7,7 +7,7 @@ require_relative('transaction')
 class Account
 
   attr_reader(:accounts)
-
+#change to transactions
   def initialize(accounts)
     @accounts = accounts
   end
@@ -15,7 +15,7 @@ class Account
   def account_income()
     total_income = 0
     @accounts.each do |account|
-      total_income += account.amount if account.transaction_type == "credit"
+      total_income += account.amount if account.transaction_type.downcase == "credit"
     end
     return total_income
   end
@@ -23,7 +23,7 @@ class Account
   def account_outgoings()
     total_outgoings = 0
     @accounts.each do |account|
-      total_outgoings += account.amount if account.transaction_type == "debit"
+      total_outgoings += account.amount if account.transaction_type.downcase == "debit"
     end
     return total_outgoings
   end
