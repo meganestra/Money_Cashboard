@@ -20,6 +20,18 @@ class Account
     return total_income
   end
 
+  def account_outgoings()
+    total_outgoings = 0
+    @accounts.each do |account|
+      total_outgoings += account.amount if account.transaction_type == "debit"
+    end
+    return total_outgoings
+  end
+
+  def account_balance()
+    return account_income - account_outgoings
+  end
+
   # def total_expenditure()
   #   total = 0
   #   @accounts.each do |account|

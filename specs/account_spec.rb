@@ -60,6 +60,14 @@ class TestAccount < Minitest::Test
     assert_equal(1650.00, @account.account_income())
   end
 
+  def test_total_spending()
+    assert_equal(60.20, @account.account_outgoings())
+  end
+
+  def test_account_balance()
+    assert_equal(1589.80, @account.account_balance())
+  end
+
   # def test_total_expenditure()
   #   assert_equal(-60.20, @account.total_expenditure())
   # end
