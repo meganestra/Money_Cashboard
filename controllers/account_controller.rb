@@ -7,6 +7,7 @@ require_relative('../models/transaction')
 
 get '/account' do
   @transactions = Transaction.show()
+  @tags = Tag.show()
   @account = Account.new(@transactions)
   erb(:'/account/account')
 end

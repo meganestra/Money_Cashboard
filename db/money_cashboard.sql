@@ -24,7 +24,7 @@ CREATE TABLE transactions (
   id SERIAL4 primary key,
   merchant_id INT4 references merchants(id),
   tag_id INT4 references tags(id),
-  amount INT2 not null,
+  amount NUMERIC(10,2) not null,
   date DATE not null,
   time TIME not null,
   transaction_type VARCHAR(255) not null,

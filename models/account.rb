@@ -33,7 +33,7 @@ class Account
     @transactions.each do |transaction|
       total_outgoings += transaction.amount if transaction.transaction_type.downcase == "debit"
     end
-    return total_outgoings.to_f
+    return total_outgoings
   end
 
   def account_outgoings_by_tag(tag)
@@ -46,7 +46,7 @@ class Account
 
   def account_balance()
     result = account_income - account_outgoings
-    return result.to_f
+    return result
   end
 
   def balance_against_target(target)
