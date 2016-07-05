@@ -1,6 +1,7 @@
 require('sinatra')
 require( 'sinatra/contrib/all' )
 require_relative('../models/transaction')
+require_relative('../models/account')
 require_relative('../models/merchant')
 require_relative('../models/tag')
 require('pry-byebug')
@@ -21,5 +22,6 @@ get '/transaction' do
   @transactions = Transaction.show()
   @merchants = Merchant.show()
   @tags = Tag.show()
+  @account = Account.new(@transactions)
   erb(:'transaction/index')
 end

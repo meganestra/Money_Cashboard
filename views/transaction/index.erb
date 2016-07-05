@@ -1,8 +1,12 @@
 <h1>Your transactions</h1>
 
+<h5>Balance:</h5>
+<p>£ <%= @account.account_balance  %> </p>
+
 <table>
   <thead>
     <tr>
+      <th>Ref</th>
       <th>Merchant</th>
       <th>Tag</th>
       <th>Amount</th>
@@ -11,8 +15,11 @@
     </tr>
   </thead>
     <tbody>
+    <% count = 1 %>
     <% @transactions.each do |transaction| %>
       <tr>
+        <td><%=count %> </td>
+              <%count += 1 %>
         <td><%= transaction.merchant_name %></td>
         <td><%= transaction.tag_description %></td>
         <td><%= transaction.amount %></td>
@@ -22,7 +29,3 @@
     <% end %>
   </tbody>
 </table>
-
-
-
-

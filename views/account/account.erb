@@ -17,18 +17,18 @@
 <% end %>
 
   <% @tags.each do |tag| %>
-    <% if @account.account_income > 0 %>
+    <% if @account.account_income > 0.0 %>
     <%= tag.description  %>
     <p>£<%= @account.account_income_by_tag(tag.id) %></p>
     <% end %>
   <% end %>
 
-  <% if @account.account_outgoings > 0 %>
+  <% if @account.account_outgoings > 0.0 %>
   <h5>Outgoings by tag:</h5>
   <% end %>
 
   <% @tags.each do |tag| %>
-    <% if @account.account_outgoings > 0 %>
+    <% if @account.account_outgoings > 0.0 %>
       <%= tag.description  %>
       <p>£<%= @account.account_outgoings_by_tag(tag.id) %></p>
       <% end %>

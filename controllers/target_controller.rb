@@ -19,6 +19,8 @@ end
 
 get '/target' do
  @targets = Target.show()
+ @transactions = Transaction.show()
+ @account = Account.new(@transactions)
  erb(:'/target/index')
 end
 
