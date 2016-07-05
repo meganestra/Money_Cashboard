@@ -1,7 +1,25 @@
-<h1>Your transactions</h1>
+<h1>Your Money Cashboard</h1>
 
-<h5>Balance:</h5>
-<p>£ <%= @account.account_balance  %> </p>
+<table>
+<thead>
+<tr>
+  <th>Total income</th>
+  <th>Total outgoings</th>
+  <th>Balance</th>
+  <th>Round-ups</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td><p>£<%= @account.account_income %></p></td>
+    <td><p>£<%= @account.account_outgoings %></p></td>
+    <td><p>£<%= @account.account_balance %></p></td>
+    <td><p>£<%= @account.calculate_round_up_value() %></p></td>
+</tr>
+</tbody>
+</table>
+
+<br><br>
 
 <table>
   <thead>
@@ -22,10 +40,14 @@
               <%count += 1 %>
         <td><%= transaction.merchant_name %></td>
         <td><%= transaction.tag_description %></td>
-        <td><%= transaction.amount %></td>
+        <td><p>£<%= transaction.amount %></p></td>
         <td><%= transaction.date %></td>
         <td><%= transaction.time %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<br><br>
+
+<a href="/transaction/new"><button type="button" class="button-on-index">Add a new transaction</button></a>

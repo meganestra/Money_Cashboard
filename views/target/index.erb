@@ -7,21 +7,32 @@
   <th>Target type</th>
   <th>Target month</th>
   <th>Target value</th>
-  <th>Target analysis</th>
+  <th>Target status</th>
+  <th>Remaining amount to reach target</th>
 </tr>
 </thead>
 <tbody>
 <% count = 1 %>
 <% @targets.each do |target| %>
-<%  %>
 <tr>
   <td><%= count %></td>
         <% count += 1 %>
   <td><%= target.type %></td>
   <td><%= target.month %></td>
-  <td><%= target.value %></td>
+  <td><p>£<%= target.value %></p></td>
   <% end %>
-  <td><a href="/target/analysis">Target status</a></td>
+  <% @targets.each do |target| %>
+  <% if @account.balance_against_target(target) == false  %>
+  <td> <h5>Target not met</h5></td>
+  <% else %>
+   <td><h5>Target met</h5> </td>
+  <% end %>
+  <% end %>
+
+  <% @targets.each do |target| %>
+  <td><p>£<%= @account.calculate_amount_to_reach_target(target) %></p></td>
+  <% end %>
+
 </tr>
 </tbody>
 </table>

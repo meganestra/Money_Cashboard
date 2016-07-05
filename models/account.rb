@@ -54,7 +54,10 @@ class Account
   end
 
   def calculate_amount_to_reach_target(target)
-    result = target.value - account_balance if balance_against_target(target) == false
+    if balance_against_target(target) == false
+      result = target.value - account_balance
+    else result = 0
+    end
     return result.round(2)
   end
 
