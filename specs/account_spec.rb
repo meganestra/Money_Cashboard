@@ -85,6 +85,10 @@ class TestAccount < Minitest::Test
     assert_equal(0.80, @account.calculate_round_up_value())
   end
 
+  def test_account_outgoings_by_tag()
+    assert_equal(40.00, @account.account_outgoings_by_tag(2))
+  end
+
 end
 
 

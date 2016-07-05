@@ -1,11 +1,11 @@
 <h1>Your target analysis</h1>
 
 <% @targets.each do |target| %>
-<%= target.type  %>
+<br><%= target.type  %>
 <% if @accounts.balance_against_target(target)  == false %>
-<h5>Target not met, amount to reach target:</h5>
-<%= @accounts.calculate_amount_to_reach_target(target) %>
+<br><h5>Target not met, amount to reach target:</h5>
+<br><%= @accounts.calculate_amount_to_reach_target(target) %>
 <% else %>
-<h5>Target met! Congratulations!</h5>
+<br><h5>Target met! Congratulations!</h5><br>
 <% end %>
 <% end %>

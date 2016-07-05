@@ -6,30 +6,39 @@ require_relative('transaction')
 
 class Account
 
-  attr_reader(:accounts)
-#change to transactions
-  def initialize(accounts)
-    @accounts = accounts
+  attr_reader(:transactions)
+
+  def initialize(transactions)
+    @transactions = transactions
   end
 
   def account_income()
     total_income = 0
-    @accounts.each do |account|
-      total_income += account.amount if account.transaction_type.downcase == "credit"
+    @transactions.each do |transaction|
+      total_income += transaction.amount if transaction.transaction_type.downcase == "credit"
     end
-    return total_income
+    return total_income.to_f
   end
 
   def account_outgoings()
     total_outgoings = 0
-    @accounts.each do |account|
-      total_outgoings += account.amount if account.transaction_type.downcase == "debit"
+    @transactions.each do |transaction|
+      total_outgoings += transaction.amount if transaction.transaction_type.downcase == "debit"
     end
-    return total_outgoings
+    return total_outgoings.to_f
+  end
+
+  def account_outgoings_by_tag(tag)
+    total_outgoings = 0
+    @transactions.each do |transaction|
+      total_outgoings += transaction.amount if transaction.transaction_type.downcase == "debit" && transaction.tag_id == tag
+    end
+    return total_outgoings.to_f
   end
 
   def account_balance()
-    return account_income - account_outgoings
+    result = account_income - account_outgoings
+    return result.to_f
   end
 
   def balance_against_target(target)
@@ -43,8 +52,8 @@ class Account
 
   def calculate_round_up_value()
     total_round_up_value = 0
-    @accounts.each do |account|
-      total_round_up_value += (account.amount).to_f.ceil if account.transaction_type == "debit"
+    @transactions.each do |transaction|
+      total_round_up_value += (transaction.amount).to_f.ceil if transaction.transaction_type == "debit"
     end
     result = total_round_up_value - account_outgoings
     return result.round(1)
