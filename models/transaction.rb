@@ -93,4 +93,13 @@ class Transaction
     return transaction.first
   end
 
+  def self.all(query = "")
+    query = query.to_s
+    sql = "SELECT * FROM transactions"
+    sql = sql + " WHERE name LIKE '%#{query}%'" unless query.empty?
+    transactions = run( sql )
+    result = transactions.map { |transaction| Transaction.new( transaction ) }
+    return result
+  end
+
 end

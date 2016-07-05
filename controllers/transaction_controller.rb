@@ -19,6 +19,8 @@ post '/transaction' do
 end
 
 get '/transaction' do
+  query = params[:search]
+  @transaction = Transaction.all(query)
   @transactions = Transaction.show()
   @merchants = Merchant.show()
   @tags = Tag.show()
