@@ -33,7 +33,7 @@ class Account
     @transactions.each do |transaction|
       total_outgoings += transaction.amount if transaction.transaction_type.downcase == "debit"
     end
-    return total_outgoings
+    return total_outgoings.to_f
   end
 
   def account_outgoings_by_tag(tag)
@@ -46,7 +46,7 @@ class Account
 
   def account_balance()
     result = account_income - account_outgoings
-    return result
+    return result.to_f
   end
 
   def balance_against_target(target)
@@ -55,16 +55,16 @@ class Account
 
   def calculate_amount_to_reach_target(target)
     result = target.value - account_balance if balance_against_target(target) == false
-    return result.round(1)
+    return result.round(2)
   end
 
   def calculate_round_up_value()
     total_round_up_value = 0
     @transactions.each do |transaction|
-      total_round_up_value += (transaction.amount).to_f.ceil if transaction.transaction_type == "debit"
+      total_round_up_value += (transaction.amount).ceil if transaction.transaction_type == "debit"
     end
     result = total_round_up_value - account_outgoings
-    return result.round(1)
+    return result.round(2)
   end
 
 end

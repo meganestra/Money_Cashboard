@@ -1,6 +1,7 @@
 require('minitest/autorun')
 require_relative('../models/account')
 require_relative('../models/target')
+require('pry-byebug')
 
 class TestAccount < Minitest::Test
 
@@ -48,6 +49,7 @@ class TestAccount < Minitest::Test
       'time' => '09:00',
       'transaction_type' => "credit"
       })
+
 
     @target1 = Target.new( {'type' => 'savings', 'month' => 'June', 'value' => 150} ).save
     @target2 = Target.new( {'type' => 'debt repayment', 'month' => 'June', 'value' => 10} ).save
@@ -99,6 +101,8 @@ end
 
 
 
+# binding.pry
+# nil
 
 
 

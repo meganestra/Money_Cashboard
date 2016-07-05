@@ -9,6 +9,9 @@
 <h5>Balance:</h5>
 <p>£<%= @account.account_balance %></p>
 
+<h5>Round-ups</h5>
+<p>£<%= @account.calculate_round_up_value() %></p>
+
 <% if @account.account_income > 0 %>
 <h5>Income by tag:</h5>
 <% end %>
@@ -30,11 +33,3 @@
       <p>£<%= @account.account_outgoings_by_tag(tag.id) %></p>
       <% end %>
     <% end %>
-
-<!-- <h5>Round-ups:</h5>
-<p>£ <%= @account.calculate_round_up_value %></p>
- -->
-
-
-
-<!-- #iterate over each transaction in @account and populate a table -->

@@ -9,3 +9,4 @@ require_relative('controllers/tag_controller')
 get '/' do
   erb (:home)
 end
+
