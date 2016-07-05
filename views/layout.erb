@@ -1,21 +1,22 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html>
 <head>
-  <title>Money Cashboard</title>
+ <title>Money Cashboard</title>
+  <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body>
-  <div class="header">
-    <a href="/">Home</a>
-    <a href="/transaction">Transactions</a>
-    <a href="/transaction/new">Add a new transaction</a>
-    <a href="/merchant/new">Add a new merchant</a>
-    <a href="/tag/new">Add a new tag</a>
-    <a href="/account">View account analysis</a>
-    <a href="/target/new">Add a new target</a>
-    <a href="/target">View targets</a>
-    <a href="/target/analysis">View target analysis</a>
+  <div class="nav">
+     <ul>
+       <li><a href="/">Home</a></li>
+       <li><a href="/account">Cashboard</a></li>
+       <li><a href="/transaction">Transactions</a></li>
+       <li><a href="/target">Targets</a></li>
+     </ul>
+  </div>
  
     <%=yield%>
-  </div>
+  
 </body>
 </html>
+
+

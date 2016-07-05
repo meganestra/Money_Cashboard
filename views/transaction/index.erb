@@ -1,24 +1,27 @@
 <h1>Your transactions</h1>
 
-<% @transactions.each do |transaction| %>
-  <h5>Merchant:</h5>
-  <%= transaction.merchant_name %>
-  <h5>Tag:</h5>
-  <%= transaction.tag_description %>
-  <h5>Amount:</h5>
-  <%= transaction.amount %>
-  <h5>Date of transaction:</h5>
-  <%= transaction.date %>
-  <h5>Time of transaction:</h5>
-  <%= transaction.time %>
-  <h5>Type of transaction:</h5>
-  <%= transaction.transaction_type %>
-  <h5>Payment method:</h5>
-  <%= transaction.payment_type %>
-  <h5>Shopping method:</h5>
-  <%= transaction.shopping_method %>
-<% end %>
-
+<table>
+  <thead>
+    <tr>
+      <th>Merchant</th>
+      <th>Tag</th>
+      <th>Amount</th>
+      <th>Date of transaction</th>
+      <th>Time of transaction</th>
+    </tr>
+  </thead>
+    <tbody>
+    <% @transactions.each do |transaction| %>
+      <tr>
+        <td><%= transaction.merchant_name %></td>
+        <td><%= transaction.tag_description %></td>
+        <td><%= transaction.amount %></td>
+        <td><%= transaction.date %></td>
+        <td><%= transaction.time %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 
 

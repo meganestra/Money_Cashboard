@@ -11,9 +11,8 @@ Tag.delete_all()
 Merchant.delete_all()
 Target.delete_all()
 
-
 tag1 = Tag.new( {'description' => 'Food shopping'} ).save
-tag2 = Tag.new( {'description' => 'Lunch out'} ).save
+tag2 = Tag.new( {'description' => 'Lunch'} ).save
 tag3 = Tag.new( {'description' => 'Rent'} ).save
 tag4 = Tag.new( {'description' => 'Clothing'} ).save
 tag5 = Tag.new( {'description' => 'Mobile phone'} ).save
@@ -28,7 +27,6 @@ tag13 = Tag.new( {'description' => 'Miscellaneous'} ).save
 tag14 = Tag.new( {'description' => 'Gifts'} ).save
 tag15 = Tag.new( {'description' => 'Music'} ).save
 
-#merchants
 merchant1 = Merchant.new( {'name' => 'Tesco'} ).save
 merchant2 = Merchant.new( {'name' => 'Subway'} ).save
 merchant3 = Merchant.new( {'name' => 'Starbucks'} ).save
@@ -40,12 +38,9 @@ merchant8 = Merchant.new( {'name' => 'Tinderbox'} ).save
 merchant9 = Merchant.new( {'name' => 'Salary'} ).save
 merchant10 = Merchant.new( {'name' => 'iTunes'} ).save
 
-#targets
 target1 = Target.new( {'type' => 'savings', 'month' => 'June', 'value' => 150} ).save
 target2 = Target.new( {'type' => 'debt repayment', 'month' => 'June', 'value' => 50} ).save
 
-
-#transactions
 transaction1 = Transaction.new( {
   'merchant_id' => merchant1.id,
   'tag_id' => tag1.id,
