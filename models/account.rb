@@ -20,6 +20,14 @@ class Account
     return total_income.to_f
   end
 
+  def account_income_by_tag(tag)
+    total_income = 0
+    @transactions.each do |transaction|
+      total_income += transaction.amount if transaction.transaction_type.downcase == "credit" && transaction.tag_id == tag
+    end
+    return total_income.to_f
+  end
+
   def account_outgoings()
     total_outgoings = 0
     @transactions.each do |transaction|
