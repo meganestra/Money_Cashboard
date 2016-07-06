@@ -67,41 +67,41 @@ class TestAccount < Minitest::Test
 
   end
 
-  # def test_total_income()
-  #   assert_equal(1650.00, @account.account_income())
-  # end
+  def test_total_income()
+    assert_equal(1650.00, @account.account_income())
+  end
 
-  # def test_total_spending()
-  #   assert_equal(68.40, @account.account_outgoings())
-  # end
+  def test_total_spending()
+    assert_equal(68.40, @account.account_outgoings())
+  end
 
-  # def test_account_balance()
-  #   assert_equal(1581.60, @account.account_balance())
-  # end
+  def test_account_balance()
+    assert_equal(1581.60, @account.account_balance())
+  end
 
-  # def test_account_balance_greater_than_target()
-  #   assert_equal(true, @account.balance_against_target(@target1))
-  # end
+  def test_account_balance_greater_than_target()
+    assert_equal(true, @account.balance_against_target(@target1))
+  end
 
-  # def test_account_balance_less_than_target()
-  #   assert_equal(false, @account.balance_against_target(@target3))
-  # end
+  def test_account_balance_less_than_target()
+    assert_equal(false, @account.balance_against_target(@target3))
+  end
 
-  # def test_amount_remaining_to_reach_target()
-  #   assert_equal(418.40, @account.calculate_amount_to_reach_target(@target3))
-  # end
+  def test_amount_remaining_to_reach_target()
+    assert_equal(418.40, @account.calculate_amount_to_reach_target(@target3))
+  end
 
-  # def test_calculate_round_up_value_of_account()
-  #   assert_equal(1.60, @account.calculate_round_up_value())
-  # end
+  def test_calculate_round_up_value_of_account()
+    assert_equal(1.60, @account.calculate_round_up_value())
+  end
 
-  # def test_account_outgoings_by_tag()
-  #   assert_equal(40.00, @account.account_outgoings_by_tag(2))
-  # end
+  def test_account_outgoings_by_tag()
+    assert_equal(40.00, @account.account_outgoings_by_tag(2))
+  end
 
-  # def test_account_income_by_tag()
-  #   assert_equal(1650.00, @account.account_income_by_tag(4))
-  # end
+  def test_account_income_by_tag()
+    assert_equal(1650.00, @account.account_income_by_tag(4))
+  end
 
   def test_micro_transactions()
     assert_equal(8.20, @account.number_of_micro_transactions())
