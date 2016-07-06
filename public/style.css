@@ -141,6 +141,11 @@ td {
     vertical-align: center;
 }
 
+#trans_head {
+  background-color: #c03546;
+  color: white;
+}
+
 /*[data-negative] {
   color: #c03546;
 }*/
