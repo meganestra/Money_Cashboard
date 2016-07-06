@@ -35,18 +35,12 @@
 <tbody>
   <tr>
     <td><%= @account.total_number_of_transactions%></td>
-    <td><p>£<%= format("%.2f", @account.max_debit_amount)%></p></td>
-    <td><p>£<%= format("%.2f", @account.min_debit_amount)%></p></td>
-    <td><p>£<%= format("%.2f", @account.number_of_micro_transactions)%></p></td>
+    <td><p>£<%= @account.max_debit_amount%></p></td>
+    <td><p>£<%= @account.min_debit_amount%></p></td>
+    <td><p>£<%= @account.number_of_micro_transactions%></p></td>
   </tr>
 </tbody>
 </table>
-
-<!-- <form method="get">
-  Search by transaction
-  <input name="search" value="" type="text" />
-  <input type="submit" value="search" />
-</form> -->
 
 <br><br> 
 

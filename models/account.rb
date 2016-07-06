@@ -19,7 +19,7 @@ class Account
     @transactions.each do |transaction|
       total_income += transaction.amount if transaction.transaction_type.downcase == "credit"
     end
-    return total_income.to_f.round(2)
+    return total_income.to_f
   end
 
   def account_income_by_tag(tag)
@@ -60,7 +60,7 @@ class Account
       result = target.value - account_balance
     else result = 0
     end
-    return result.round(2)
+    return result
   end
 
   def calculate_round_up_value()
@@ -69,7 +69,7 @@ class Account
       total_round_up_value += (transaction.amount).ceil if transaction.transaction_type.downcase == "debit"
     end
     result = total_round_up_value - account_outgoings
-    return result.round(2)
+    return result
   end
 
   def number_of_micro_transactions()
