@@ -52,8 +52,6 @@ class Account
   end
 
   def balance_against_target(target)
-
-
     return account_balance > target.value
   end
 
@@ -83,7 +81,7 @@ class Account
   end
 
   def all_debit_transaction_amounts
-    debit_transaction_amounts = @transactions.map { |transaction| transaction.amount if transaction.transaction_type == "debit" }
+    debit_transaction_amounts = @transactions.map { |transaction| transaction.amount if transaction.transaction_type.downcase == "debit" }
     return debit_transaction_amounts.compact
   end
 
@@ -100,7 +98,7 @@ class Account
   def total_number_of_credit_transactions
     credits = []
     @transactions.each do |transaction|
-      credits << transaction if transaction.transaction_type == "credit"
+      credits << transaction if transaction.transaction_type.downcase == "credit"
     end
     return credits.count
   end
@@ -108,7 +106,7 @@ class Account
   def total_number_of_debit_transactions
     debits = []
     @transactions.each do |transaction|
-      debits << transaction if transaction.transaction_type == "debit"
+      debits << transaction if transaction.transaction_type.downcase == "debit"
     end
     return debits.count
   end

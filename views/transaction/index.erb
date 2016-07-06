@@ -32,10 +32,10 @@
   </thead>
 <tbody>
   <tr>
-    <td><%= @account.total_number_of_transactions  %> </td>
-    <td><p>£<%= @account.max_debit_amount %></p> </td>
-    <td><p>£<%= @account.min_debit_amount %></p> </td>
-    <td><p>£<%= @account.number_of_micro_transactions() %> </p></td>
+    <td><%= @account.total_number_of_transactions%></td>
+    <td><p>£<%= @account.max_debit_amount%></p></td>
+    <td><p>£<%= @account.min_debit_amount%></p></td>
+    <td><p>£<%= @account.number_of_micro_transactions()%></p></td>
   </tr>
 </tbody>
 </table>
@@ -83,7 +83,7 @@
   </thead>
     <tbody>
     <% count = 1 %>
-    <% @transactions.each do |transaction| %>
+    <% @account.transactions.each do |transaction| %>
       <tr>
         <td><%=count %> </td>
               <%count += 1 %>

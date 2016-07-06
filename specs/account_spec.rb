@@ -59,9 +59,9 @@ class TestAccount < Minitest::Test
       })
 
 
-    @target1 = Target.new( {'type' => 'savings', 'month' => 'June', 'value' => 150} ).save
-    @target2 = Target.new( {'type' => 'debt repayment', 'month' => 'June', 'value' => 10} ).save
-    @target3 = Target.new( {'type' => 'savings', 'month' => 'June', 'value' => 2000} ).save
+    @target1 = Target.new( {'type' => 'savings', 'month' => 'June', 'value' => 150} )
+    @target2 = Target.new( {'type' => 'debt repayment', 'month' => 'June', 'value' => 10} )
+    @target3 = Target.new( {'type' => 'savings', 'month' => 'June', 'value' => 2000} )
 
     @account = Account.new([transaction1, transaction2, transaction3, transaction4, transaction5], [@target1, @target2, @target3])
 
