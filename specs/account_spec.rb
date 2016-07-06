@@ -131,6 +131,10 @@ class TestAccount < Minitest::Test
     assert_equal(2160, @account.total_targets_value())
   end
 
+  def test_total_target_value_against_total_balance()
+    assert_equal(false, @account.balance_against_total_target_value())
+  end
+
 end
 
 

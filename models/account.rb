@@ -124,6 +124,10 @@ class Account
     return total_target_value
   end
 
+  def balance_against_total_target_value()
+    return account_balance > total_targets_value
+  end
+
 
 end
 
