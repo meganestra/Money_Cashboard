@@ -93,13 +93,26 @@ class Account
     return result.max
   end
 
+  def total_number_of_credit_transactions
+    credits = []
+    @transactions.each do |transaction|
+      credits << transaction if transaction.transaction_type == "credit"
+    end
+    return credits.count
+  end
 
+  def total_number_of_debit_transactions
+    debits = []
+    @transactions.each do |transaction|
+      debits << transaction if transaction.transaction_type == "debit"
+    end
+    return debits.count
+  end
 
-
-  #max
-  #min
-  #avg
-  #count of trans
+  def total_number_of_transactions
+    result = total_number_of_credit_transactions + total_number_of_debit_transactions
+    return result
+  end
 
 end
 
