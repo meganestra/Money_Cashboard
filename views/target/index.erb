@@ -20,20 +20,35 @@
   <td><%= target.type %></td>
   <td><%= target.month %></td>
   <td><p>£<%= target.value %></p></td>
-  <% end %>
-  <% @targets.each do |target| %>
   <% if @account.balance_against_target(target) == false  %>
-  <td> <h5>Target not met</h5></td>
+  <td> <h5>Target cannot be met</h5></td>
   <% else %>
-   <td><h5>Target met</h5> </td>
-  <% end %>
+   <td><h5>Target could be met</h5> </td>
   <% end %>
 
-  <% @targets.each do |target| %>
   <td><p>£<%= @account.calculate_amount_to_reach_target(target) %></p></td>
   <% end %>
 
 </tr>
+</tbody>
+</table>
+
+<br><br>
+
+<table>
+<thead>
+  <tr>
+    <th>Total target value</th>
+    <th>Available funds</th>
+    <th>Remaining amount to reach total target value</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><p>£<%= @account.total_targets_value()  %></p></td>
+    <td><p>£<%= @account.account_balance() %></p></td>
+    <td><p>£<%= @account.calculate_amount_to_reach_total_target_value() %></p></td>
+  </tr>
 </tbody>
 </table>
 

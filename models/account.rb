@@ -52,6 +52,8 @@ class Account
   end
 
   def balance_against_target(target)
+
+
     return account_balance > target.value
   end
 
@@ -135,6 +137,11 @@ class Account
       result = 0
     end
     return result.round(2)
+  end
+
+  def calculate_new_balance_post_target(target)
+      new_account_balance = account_balance - target.value if balance_against_target(target) == true
+      return new_account_balance.round(2)
   end
 
 

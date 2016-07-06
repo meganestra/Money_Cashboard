@@ -8,20 +8,20 @@ require_relative('../models/target')
 
 
 get '/target/new' do
-  erb(:'/target/new')
+  erb(:'target/new')
 end
 
 post '/target' do
   @target = Target.new(params)
   @target.save
-  erb(:'/target/create')
+  erb(:'target/create')
 end
 
 get '/target' do
  @targets = Target.show()
  @transactions = Transaction.show()
  @account = Account.new(@transactions, @targets)
- erb(:'/target/index')
+ erb(:'target/index')
 end
 
 get '/target/analysis' do
