@@ -19,7 +19,7 @@ class Account
     @transactions.each do |transaction|
       total_income += transaction.amount if transaction.transaction_type.downcase == "credit"
     end
-    return total_income.to_f
+    return total_income.to_f.round(2)
   end
 
   def account_income_by_tag(tag)

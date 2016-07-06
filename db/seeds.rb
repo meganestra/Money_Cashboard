@@ -26,6 +26,7 @@ tag12 = Tag.new( {'description' => 'Fun'} ).save
 tag13 = Tag.new( {'description' => 'Miscellaneous'} ).save
 tag14 = Tag.new( {'description' => 'Gifts'} ).save
 tag15 = Tag.new( {'description' => 'Music'} ).save
+tag15 = Tag.new( {'description' => 'CodeClan'} ).save
 
 merchant1 = Merchant.new( {'name' => 'Tesco'} ).save
 merchant2 = Merchant.new( {'name' => 'Subway'} ).save

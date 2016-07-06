@@ -14,6 +14,7 @@ post '/merchant' do
   @merchant = Merchant.new(params)
   @merchant.save
   erb(:'/merchant/create')
+  # redirect to ('/transaction')
 end
 
 get '/merchant' do

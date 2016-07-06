@@ -10,7 +10,7 @@
     <%end%>
   </select>
 
-  <a href="/merchant/new"><button type="button">Add a new merchant</button></a>
+  <a href="/merchant/new"><button type="button" id="button-on-new-form">Add a new merchant</button></a>
 
   <br><br><hr>
 
@@ -22,7 +22,7 @@
       <%end%>
     </select>
 
-    <a href="/tag/new"><button type="button">Add a new category</button></a>
+    <a href="/tag/new"><button type="button" id="button-on-new-form">Add a new category</button></a>
 
     <br><br><hr>
 
@@ -49,9 +49,9 @@
       <input type="radio" name="transaction_type" value="credit" checked>Credit<br>
       <input type="radio" name="transaction_type" value="debit">Debit<br>
 
-    <br><br><hr>
+<hr>
 
-  <input type="submit" value="Add  transaction">
+  <input type="submit" class="button-on-index" value="Add  transaction">
 
 </form>
 </div>

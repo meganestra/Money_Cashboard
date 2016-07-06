@@ -11,10 +11,10 @@
 </thead>
 <tbody>
 <tr>
-    <td><p>£<%= @account.account_income %></p></td>
-    <td><p>£<%= @account.account_outgoings %></p></td>
-    <td><p>£<%= @account.account_balance %></p></td>
-    <td><p>£<%= @account.calculate_round_up_value() %></p></td>
+    <td><p>£<%= format("%.2f", @account.account_income) %></p></td>
+    <td><p>£<%= format("%.2f", @account.account_outgoings) %></p></td>
+    <td><p>£<%= format("%.2f", @account.account_balance) %></p></td>
+    <td><p>£<%= format("%.2f", @account.calculate_round_up_value) %></p></td>
 </tr>
 </tbody>
 </table>
@@ -33,9 +33,9 @@
 <tbody>
   <tr>
     <td><%= @account.total_number_of_transactions%></td>
-    <td><p>£<%= @account.max_debit_amount%></p></td>
-    <td><p>£<%= @account.min_debit_amount%></p></td>
-    <td><p>£<%= @account.number_of_micro_transactions()%></p></td>
+    <td><p>£<%= format("%.2f", @account.max_debit_amount)%></p></td>
+    <td><p>£<%= format("%.2f", @account.min_debit_amount)%></p></td>
+    <td><p>£<%= format("%.2f", @account.number_of_micro_transactions)%></p></td>
   </tr>
 </tbody>
 </table>
@@ -52,7 +52,7 @@
   <thead>
     <tr>
         <th>Tag</th>
-        <th>Expenditure value (£)</th>
+        <th>Expenditure value</th>
     </tr>
   </thead>
   <tbody>
@@ -60,7 +60,7 @@
         <% if @account.account_outgoings_by_tag(tag.id) > 0 %>
         <tr>
         <td><%= tag.description  %></td>
-        <td> <%= @account.account_outgoings_by_tag(tag.id) %> </td>
+        <td> <p>£<%= format("%.2f", @account.account_outgoings_by_tag(tag.id)) %></p> </td>
         </tr>
         <% end %>
         <% end %>
@@ -89,7 +89,7 @@
               <%count += 1 %>
         <td><%= transaction.merchant_name %></td>
         <td><%= transaction.tag_description %></td>
-        <td><p>£<%= transaction.amount %></p></td>
+        <td><p>£<%= format("%.2f", transaction.amount) %></p></td>
         <td><%= transaction.date %></td>
         <td><%= transaction.time %></td>
       </tr>

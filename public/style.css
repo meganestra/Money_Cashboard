@@ -1,3 +1,11 @@
+#home_background_image {
+ height: 80em;
+ width: 80em;
+ background: url('14077376170_63d0a48797_k.jpg') no-repeat center center fixed;
+ background-size: cover;
+ overflow-y: scroll;
+}
+
 html, body {
  margin: 5px;
  padding: 5px;
@@ -6,9 +14,10 @@ html, body {
 .nav ul {
    list-style-type: none;
    margin: 0;
-   padding-left: 5px;
+   padding-left: 20px;
    overflow: hidden;
-   background-color: #285943;
+   background-color: #454552;
+   width: 100%;
 }
 
 .nav li {
@@ -21,37 +30,38 @@ html, body {
    text-align: center;
    padding: 14px 16px;
    text-decoration: none;
-   font-family: 'Questrial', sans-serif;
+   font-family: 'Julius Sans One', sans-serif;
    text-transform: uppercase;
 }
 
 .nav li a:hover {
-   background-color: #77AF9C;
+   background-color: #c03546;
 }
 
 .button {
-   background-color: #8CD790;
-   border: 5px solid #77AF9C;
+   background-color: #F6B352;
+   border: 2px solid #454552;
    border-radius: 5px;
    color: white;
-   padding: 20px 42px;
+   padding: 20px 80px;
    text-align: center;
    text-decoration: none;
    display: inline-block;
    font-size: 24px;
    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
    width: 100%;
+   font-family: 'Julius Sans One', sans-serif;
 }
 
 .button:hover {
-    background-color: #4CAF50;
+    background-color: #c03546;
     color: white;
     cursor: pointer;
 }
 
 .button-on-index {
-   background-color: #8CD790;
-   border: 2px solid #77AF9C;
+   background-color: #F6B352;
+   border: 2px solid #454552;
    border-radius: 5px;
    color: white;
    padding: 10px 22px;
@@ -60,29 +70,49 @@ html, body {
    display: inline-block;
    font-size: 24px;
    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+   font-family: 'Julius Sans One', sans-serif;
 }
 
 .button-on-index:hover {
-    background-color: #4CAF50;
+    background-color: #c03546;
     color: white;
     cursor: pointer;
 }
 
+#button-on-new-form {
+  background-color: #F6B352;
+  border: 1px solid #454552;
+  border-radius: 5px;
+  color: white;
+  padding: 5px 12px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 10px;
+  font-family: 'Julius Sans One', sans-serif;
+}
+
+#button-on-new-form:hover {
+  background-color: #c03546;
+  color: white;
+  cursor: pointer;
+}
+
 #section {
-   width:350px;
-   float:right;
-   padding:10px; 
+   width: 350px;
+   float: left;
+   padding: 50px; 
 }
 
 body {
-   background-color: #D7FFF1;
-   font-family: 'Questrial', sans-serif;
+   background-color: #E0E3DA;
+  font-family: 'Julius Sans One', sans-serif;
+   background-image: '14077376170_63d0a48797_k.jpg'
 }
 
 h1 {
-   font-size: 40px;
-   font-family: 'Questrial', sans-serif;
-   color: #77AF9C;
+   font-size: 50px;
+   font-family: 'Julius Sans One', sans-serif;
+   color: #c03546;
    text-align: center;
 }
 
@@ -100,7 +130,7 @@ th {
     height: 50px;
     text-align: center;
     vertical-align: center;
-    background-color: #8CD790;
+    background-color: #F6B352;
 }
 
 td {
@@ -110,13 +140,38 @@ td {
 }
 
 #transaction-form {
-  width: 500px;
+  width: 600px;
   height: 450px;
   margin: 0 auto;
-  border: 2px solid black;
+/*  border: 2px solid black;*/
 }
 
+/*footer {
+background-color: #454552;
+height: 65px;
+text-align: center;
+left: 0px;
+bottom: 0px;
+margin: 5px;
+padding: 5px;
+}
 
+footer ul {
+  padding-left: 0px;
+  margin-left: 0px;
+  list-style-type: none;
+  line-height: 65px;
+}
+
+footer ul li {
+  display: inline-block;
+  margin-right: 65px;
+  text-decoration: none;
+  color: white;
+  line-height: 50px;
+  margin-left: 20px;
+  font-size: 15px;
+}*/
 
 
 
