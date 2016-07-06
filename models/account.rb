@@ -64,11 +64,38 @@ class Account
   def calculate_round_up_value()
     total_round_up_value = 0
     @transactions.each do |transaction|
-      total_round_up_value += (transaction.amount).ceil if transaction.transaction_type == "debit"
+      total_round_up_value += (transaction.amount).ceil if transaction.transaction_type.downcase == "debit"
     end
     result = total_round_up_value - account_outgoings
     return result.round(2)
   end
+
+  def number_of_micro_transactions()
+    total_micro_transactions = 0
+    @transactions.each do |transaction|
+      total_micro_transactions += transaction.amount if transaction.amount < 10 && transaction.transaction_type.downcase == "debit"
+      end
+    return total_micro_transactions 
+  end
+
+  def all_debit_transaction_amounts
+    debit_transaction_amounts = @transactions.map { |transaction| transaction.amount if transaction.transaction_type == "debit" }
+    return debit_transaction_amounts.compact
+  end
+
+  def min_debit_amount
+    result = all_debit_transaction_amounts
+    return result.min
+  end
+
+
+
+
+
+  #max
+  #min
+  #avg
+  #count of trans
 
 end
 
