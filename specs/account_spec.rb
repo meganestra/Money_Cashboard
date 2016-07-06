@@ -63,7 +63,7 @@ class TestAccount < Minitest::Test
     @target2 = Target.new( {'type' => 'debt repayment', 'month' => 'June', 'value' => 10} ).save
     @target3 = Target.new( {'type' => 'savings', 'month' => 'June', 'value' => 2000} ).save
 
-    @account = Account.new([transaction1, transaction2, transaction3, transaction4, transaction5])
+    @account = Account.new([transaction1, transaction2, transaction3, transaction4, transaction5], [@target1, @target2, @target3])
 
   end
 
@@ -125,6 +125,10 @@ class TestAccount < Minitest::Test
 
   def test_number_of_debit_transactions()
     assert_equal(3, @account.total_number_of_debit_transactions())
+  end
+
+  def test_total_target_value()
+    assert_equal(2160, @account.total_targets_value())
   end
 
 end

@@ -20,13 +20,13 @@ end
 get '/target' do
  @targets = Target.show()
  @transactions = Transaction.show()
- @account = Account.new(@transactions)
+ @account = Account.new(@transactions, @targets)
  erb(:'/target/index')
 end
 
 get '/target/analysis' do
   @targets = Target.show()
   @transactions = Transaction.show()
-  @accounts = Account.new(@transactions)
+  @accounts = Account.new(@transactions, @targets)
   erb(:'target/target')
 end

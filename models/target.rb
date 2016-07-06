@@ -52,4 +52,22 @@ class Target
     return target.first
   end
 
+  # def total_target_value
+  #   targets = Target.show
+  #   total = 0
+  #   targets.each do |target|
+  #     total += target.value
+  #   end
+  #   return total
+  # end
+
+
 end
+
+
+
+
+
+
+
+

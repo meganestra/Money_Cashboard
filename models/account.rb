@@ -3,13 +3,15 @@ require_relative('../db/sql_runner')
 require_relative('tag')
 require_relative('merchant')
 require_relative('transaction')
+require_relative('target')
 
 class Account
 
-  attr_reader(:transactions)
+  attr_reader(:transactions, :targets)
 
-  def initialize(transactions)
+  def initialize(transactions, targets)
     @transactions = transactions
+    @targets = targets
   end
 
   def account_income()
@@ -113,6 +115,15 @@ class Account
     result = total_number_of_credit_transactions + total_number_of_debit_transactions
     return result
   end
+
+  def total_targets_value()
+    total_target_value = 0
+    @targets.each do |target|
+      total_target_value += target.value
+    end
+    return total_target_value
+  end
+
 
 end
 
