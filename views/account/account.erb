@@ -1,4 +1,4 @@
-<h1>Account analysis</h1>
+<h1>Your Money Cashboard</h1>
 
 <table>
 <thead>
@@ -19,7 +19,34 @@
 </tbody>
 </table>
 
-<br><br><hr>  
+<br><br> 
+
+<table>
+  <thead>
+    <tr>
+        <th>Total number of transactions</th>
+        <th>Minimum debit transaction</th>
+        <th>Maximum debit transaction</th>
+        <th>Value of micro-transactions</th>
+    </tr>
+  </thead>
+<tbody>
+  <tr>
+    <td><%= @account.total_number_of_transactions%></td>
+    <td><p>£<%= @account.max_debit_amount%></p></td>
+    <td><p>£<%= @account.min_debit_amount%></p></td>
+    <td><p>£<%= @account.number_of_micro_transactions()%></p></td>
+  </tr>
+</tbody>
+</table>
+
+<!-- <form method="get">
+  Search by transaction
+  <input name="search" value="" type="text" />
+  <input type="submit" value="search" />
+</form> -->
+
+<br><br> 
 
 <table>
   <thead>
@@ -30,13 +57,53 @@
   </thead>
   <tbody>
         <% @tags.each do |tag| %>
-        <tr><td><%= tag.description %></td>
+        <% if @account.account_outgoings_by_tag(tag.id) > 0 %>
+        <tr>
+        <td><%= tag.description  %></td>
+        <td> <%= @account.account_outgoings_by_tag(tag.id) %> </td>
+        </tr>
         <% end %>
-        <% @tags.each do |tag| %>
-        <td> <%= @account.account_outgoings_by_tag(tag.id) %> </td></tr>
         <% end %>
+
   </tbody>
 </table>
+
+<br><br> 
+
+<table>
+  <thead>
+    <tr>
+      <th>Ref</th>
+      <th>Merchant</th>
+      <th>Tag</th>
+      <th>Amount</th>
+      <th>Date of transaction</th>
+      <th>Time of transaction</th>
+    </tr>
+  </thead>
+    <tbody>
+    <% count = 1 %>
+    <% @account.transactions.each do |transaction| %>
+      <tr>
+        <td><%=count %> </td>
+              <%count += 1 %>
+        <td><%= transaction.merchant_name %></td>
+        <td><%= transaction.tag_description %></td>
+        <td><p>£<%= transaction.amount %></p></td>
+        <td><%= transaction.date %></td>
+        <td><%= transaction.time %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br><br>
+
+<a href="/transaction/new"><button type="button" class="button-on-index">Add a new transaction</button></a>
+
+
+
+
 
 
 
