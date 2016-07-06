@@ -88,6 +88,10 @@ class Account
     return result.min
   end
 
+  def max_debit_amount
+    result = all_debit_transaction_amounts
+    return result.max
+  end
 
 
 

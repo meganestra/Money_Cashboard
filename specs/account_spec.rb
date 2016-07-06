@@ -107,9 +107,9 @@ class TestAccount < Minitest::Test
     assert_equal(8.20, @account.number_of_micro_transactions())
   end
 
-  # def test_max_transaction()
-  #   assert_equal(40.00, @account.max_transaction())
-  # end
+  def test_max_transaction()
+    assert_equal(40.00, @account.max_debit_amount())
+  end
 
   def test_min_transaction()
     assert_equal(8.20, @account.min_debit_amount())
