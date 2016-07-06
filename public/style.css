@@ -117,7 +117,7 @@ h1 {
 }
 
 table {
-   border: 1px solid #454552;
+   border: 2px solid #454552;
    border-radius: 5px;
    width: 100%;
    table-layout: fixed;
