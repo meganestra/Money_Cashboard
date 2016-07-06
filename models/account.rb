@@ -128,6 +128,15 @@ class Account
     return account_balance > total_targets_value
   end
 
+  def calculate_amount_to_reach_total_target_value()
+    if balance_against_total_target_value == false
+      result = total_targets_value - account_balance
+    else
+      result = 0
+    end
+    return result.round(2)
+  end
+
 
 end
 
