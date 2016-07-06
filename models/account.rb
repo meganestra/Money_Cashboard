@@ -60,7 +60,7 @@ class Account
       result = target.value - account_balance
     else result = 0
     end
-    return result
+    return result.round(2)
   end
 
   def calculate_round_up_value()
@@ -69,7 +69,7 @@ class Account
       total_round_up_value += (transaction.amount).ceil if transaction.transaction_type.downcase == "debit"
     end
     result = total_round_up_value - account_outgoings
-    return result
+    return result.round(2)
   end
 
   def number_of_micro_transactions()
@@ -142,6 +142,10 @@ class Account
       return new_account_balance.round(2)
   end
 
+  def account_balance_minus_round_ups
+    adjusted_balance = account_balance - calculate_round_up_value
+    return adjusted_balance.round(2)
+  end
 
 end
 

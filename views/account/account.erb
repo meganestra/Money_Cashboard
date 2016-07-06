@@ -7,7 +7,7 @@
 <tr>
   <th>Total income</th>
   <th>Total outgoings</th>
-  <th>Balance</th>
+  <th>Balance excl. round-ups</th>
   <th>Round-ups</th>
 </tr>
 </thead>
@@ -15,7 +15,7 @@
 <tr>
     <td><p>£<%= format("%.2f", @account.account_income) %></p></td>
     <td><p>£<%= format("%.2f", @account.account_outgoings) %></p></td>
-    <td><p>£<%= format("%.2f", @account.account_balance) %></p></td>
+    <td><p>£<%= format("%.2f", @account.account_balance_minus_round_ups) %></p></td>
     <td><p>£<%= format("%.2f", @account.calculate_round_up_value) %></p></td>
 </tr>
 </tbody>

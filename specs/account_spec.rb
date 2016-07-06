@@ -139,6 +139,10 @@ class TestAccount < Minitest::Test
     assert_equal(578.40, @account.calculate_amount_to_reach_total_target_value())
   end
 
+  def test_balance_minus_round_ups()
+    assert_equal(1580, @account.account_balance_minus_round_ups())
+  end
+
 end
 
 
