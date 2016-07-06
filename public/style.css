@@ -104,9 +104,9 @@ html, body {
 }
 
 body {
-   background-color: #E0E3DA;
+  background-color: #fbd14b;
   font-family: 'Julius Sans One', sans-serif;
-   background-image: '14077376170_63d0a48797_k.jpg'
+  color: #454552;
 }
 
 h1 {
@@ -117,7 +117,8 @@ h1 {
 }
 
 table {
-   border: 1px solid black;
+   border: 1px solid #454552;
+   border-radius: 5px;
    width: 100%;
    table-layout: fixed;
 }
@@ -131,6 +132,7 @@ th {
     text-align: center;
     vertical-align: center;
     background-color: #F6B352;
+    border-radius: 5px;
 }
 
 td {
@@ -139,12 +141,47 @@ td {
     vertical-align: center;
 }
 
+/*[data-negative] {
+  color: #c03546;
+}*/
+
 #transaction-form {
   width: 600px;
   height: 450px;
   margin: 0 auto;
 /*  border: 2px solid black;*/
 }
+
+input[type=text] {
+    border: 2px solid #F6B352;
+    border-radius: 4px;
+}
+
+input[type=select] {
+    border: 2px solid #F6B352;
+    border-radius: 4px;
+}
+
+input[type=number] {
+    border: 2px solid #F6B352;
+    border-radius: 4px;
+}
+
+input[type=date] {
+    border: 2px solid #F6B352;
+    border-radius: 4px;
+}
+
+input[type=time] {
+    border: 2px solid #F6B352;
+    border-radius: 4px;
+}
+
+select {
+    border: 2px solid #F6B352;
+    border-radius: 4px;
+}
+
 
 /*footer {
 background-color: #454552;
